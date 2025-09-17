@@ -28,7 +28,7 @@ export default function ServicesSection() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => {
+          {services.map((service) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
             
             return (
@@ -82,7 +82,7 @@ export default function ServicesSection() {
         {/* Bottom CTA */}
         <div className="text-center mt-12 lg:mt-16">
           <p className="text-sm sm:text-base text-muted-foreground mb-4 lg:mb-6">
-            Ready to accelerate your business growth? Let's discuss your specific needs and create a tailored solution that delivers measurable results.
+            Ready to accelerate your business growth? Let&apos;s discuss your specific needs and create a tailored solution that delivers measurable results.
           </p>
           <Button asChild size="lg" className="group">
             <Link href="/contact">

@@ -11,7 +11,7 @@ export default function TestimonialsSection() {
             Success Stories That Speak Volumes
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Our clients don't just achieve their goals—they exceed them. Discover how industry leaders 
+            Our clients don&apos;t just achieve their goals—they exceed them. Discover how industry leaders 
             have transformed their businesses and accelerated growth with our proven solutions.
           </p>
         </div>
@@ -37,7 +37,7 @@ export default function TestimonialsSection() {
 
               {/* Content */}
               <blockquote className="text-sm sm:text-base text-muted-foreground leading-relaxed mb-4 lg:mb-6">
-                "{testimonial.content}"
+                &ldquo;{testimonial.content}&rdquo;
               </blockquote>
 
               {/* Author */}

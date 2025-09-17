@@ -19,7 +19,7 @@ export default function ContactPage() {
               Get in Touch
             </h1>
             <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Ready to transform your business with our services? We'd love to hear from you. 
+              Ready to transform your business with our services? We&apos;d love to hear from you. 
               Contact us today to discuss your project requirements and how we can help you succeed.
             </p>
           </div>
@@ -35,7 +35,7 @@ export default function ContactPage() {
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">Contact Information</h2>
                 <p className="text-lg text-muted-foreground mb-8">
-                  We're here to help you with all your business needs. Reach out to us through any of the channels below.
+                  We&apos;re here to help you with all your business needs. Reach out to us through any of the channels below.
                 </p>
               </div>
 
@@ -208,7 +208,7 @@ export default function ContactPage() {
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Here are some common questions we receive. If you don't see your question here, feel free to contact us directly.
+              Here are some common questions we receive. If you don&apos;t see your question here, feel free to contact us directly.
             </p>
           </div>
 
@@ -263,7 +263,7 @@ export default function ContactPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Don't wait to transform your business. Contact us today and let's discuss how we can help you achieve your goals.
+            Don&apos;t wait to transform your business. Contact us today and let&apos;s discuss how we can help you achieve your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">

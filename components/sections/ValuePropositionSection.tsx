@@ -1,4 +1,4 @@
-import { CheckCircle, Zap, Shield, TrendingUp } from "lucide-react";
+import { Zap, Shield, TrendingUp } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const valueProps = [
@@ -32,7 +32,7 @@ export default function ValuePropositionSection() {
             Why Choose TechFlow Solutions?
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We don't just deliver services—we deliver transformation. Here's what sets us apart 
+            We don&apos;t just deliver services—we deliver transformation. Here&apos;s what sets us apart 
             and why industry leaders trust us with their most critical projects.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function ValuePropositionSection() {
         {/* Bottom CTA */}
         <div className="text-center mt-12 lg:mt-16">
           <p className="text-sm sm:text-base text-muted-foreground mb-4 lg:mb-6">
-            Ready to experience the TechFlow difference? Let's discuss how we can accelerate your success.
+            Ready to experience the TechFlow difference? Let&apos;s discuss how we can accelerate your success.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a

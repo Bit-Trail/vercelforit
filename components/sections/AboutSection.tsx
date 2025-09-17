@@ -20,10 +20,10 @@ export default function AboutSection() {
                 Your Trusted Technology Partner
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed">
-                Since {companyInfo.founded}, TechFlow Solutions has been the driving force behind digital transformation for forward-thinking businesses. We've helped over {companyInfo.clients} companies accelerate their growth through precision data solutions, strategic talent acquisition, and innovative technology infrastructure.
+                Since {companyInfo.founded}, TechFlow Solutions has been the driving force behind digital transformation for forward-thinking businesses. We&apos;ve helped over {companyInfo.clients} companies accelerate their growth through precision data solutions, strategic talent acquisition, and innovative technology infrastructure.
               </p>
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                Our mission is simple: to be the catalyst that transforms your business potential into measurable success. We combine deep industry expertise with cutting-edge technology to deliver solutions that don't just meet expectations—they exceed them and drive sustainable growth.
+                Our mission is simple: to be the catalyst that transforms your business potential into measurable success. We combine deep industry expertise with cutting-edge technology to deliver solutions that don&apos;t just meet expectations—they exceed them and drive sustainable growth.
               </p>
             </div>
 

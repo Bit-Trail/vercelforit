@@ -53,6 +53,7 @@ export default function DataAnnotationPage() {
             {/* Image Annotation */}
             <div className="group p-6 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
               <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                {/* eslint-disable-next-line jsx-a11y/alt-text */}
                 <Image className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">Image Annotation</h3>
