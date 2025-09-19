@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Users, Search, Briefcase, Target, CheckCircle, Award, Clock, TrendingUp } from "lucide-react";
+import { Users, Search, Briefcase, Target, CheckCircle, Award, Clock, TrendingUp, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -10,25 +10,51 @@ export const metadata: Metadata = {
 export default function RecruitmentPage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Users className="h-8 w-8 text-primary" />
+      {/* Hero Section - PhonePe Style */}
+      <section className="phonepe-bg-hero phonepe-section relative overflow-hidden">
+        {/* PhonePe Particle System */}
+        <div className="phonepe-particles">
+          {Array.from({ length: 25 }, (_, i) => (
+            <div
+              key={i}
+              className="phonepe-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 15}s`,
+                animationDuration: `${12 + Math.random() * 8}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* PhonePe Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="phonepe-floating-element w-64 h-64 -top-32 -right-32 blur-3xl"></div>
+          <div className="phonepe-floating-element w-64 h-64 -bottom-32 -left-32 blur-3xl"></div>
+          <div className="phonepe-floating-element w-80 h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+        </div>
+        
+        {/* PhonePe Gradient Overlays */}
+        <div className="phonepe-overlay-gradient"></div>
+        <div className="phonepe-overlay-radial"></div>
+
+        <div className="phonepe-container relative z-10">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
+            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 phonepe-card hover-scale">
+              <Users className="h-10 w-10 text-white" />
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="display-text text-white mb-8 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               Recruitment Services
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               Connect with top talent and build exceptional teams. Our recruitment experts specialize in finding the right candidates 
               for your organization across technology, healthcare, finance, and other key industries.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+              <Button size="lg" className="phonepe-button bg-white text-primary hover:bg-white/90 phonepe-touch-target-comfortable">
                 Find Talent Now
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary phonepe-touch-target-comfortable">
                 Post a Job
               </Button>
             </div>
@@ -36,11 +62,14 @@ export default function RecruitmentPage() {
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+      {/* Services Overview - PhonePe Style */}
+      <section className="phonepe-bg-service phonepe-section relative">
+        {/* PhonePe Background Patterns */}
+        <div className="phonepe-bg-pattern-dots absolute inset-0 opacity-30"></div>
+        
+        <div className="phonepe-container relative z-10">
+          <div className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">
               Our Recruitment Services
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -49,90 +78,111 @@ export default function RecruitmentPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Executive Search */}
-            <div className="group p-6 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <Briefcase className="h-6 w-6 text-primary" />
+          <div className="phonepe-grid phonepe-col-12 gap-8">
+            {/* Executive Search - PhonePe Oval Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="group phonepe-card p-8 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Briefcase className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Executive Search</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Find C-level executives and senior leadership talent for your organization.
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        CEO, CTO, CFO positions
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Board-level searches
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Confidential searches
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Executive Search</h3>
-              <p className="text-muted-foreground mb-4">
-                Find C-level executives and senior leadership talent for your organization.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  CEO, CTO, CFO positions
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Board-level searches
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Confidential searches
-                </li>
-              </ul>
             </div>
 
-            {/* Technical Recruitment */}
-            <div className="group p-6 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <Search className="h-6 w-6 text-primary" />
+            {/* Technical Recruitment - PhonePe Oval Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="group phonepe-card p-8 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Search className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Technical Recruitment</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Specialized recruitment for software engineers, data scientists, and tech professionals.
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Software engineers
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Data scientists
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        DevOps specialists
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Technical Recruitment</h3>
-              <p className="text-muted-foreground mb-4">
-                Specialized recruitment for software engineers, data scientists, and tech professionals.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Software engineers
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Data scientists
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  DevOps specialists
-                </li>
-              </ul>
             </div>
 
-            {/* Industry Specialization */}
-            <div className="group p-6 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg">
-              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <Target className="h-6 w-6 text-primary" />
+            {/* Industry Specialization - PhonePe Oval Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="group phonepe-card p-8 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                <div className="flex items-start gap-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <Target className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-3">Industry Expertise</h3>
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      Deep knowledge across healthcare, finance, fintech, and emerging technology sectors.
+                    </p>
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Healthcare & Biotech
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Financial Services
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 flex-shrink-0" />
+                        Fintech & Crypto
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Industry Expertise</h3>
-              <p className="text-muted-foreground mb-4">
-                Deep knowledge across healthcare, finance, fintech, and emerging technology sectors.
-              </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Healthcare & Biotech
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Financial Services
-                </li>
-                <li className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                  Fintech & Crypto
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Recruitment Process */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+      {/* Recruitment Process - PhonePe Style */}
+      <section className="phonepe-bg-service-alt phonepe-section relative">
+        {/* PhonePe Background Patterns */}
+        <div className="phonepe-bg-pattern-waves absolute inset-0 opacity-20"></div>
+        
+        <div className="phonepe-container relative z-10">
+          <div className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">
               Our Recruitment Process
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -140,55 +190,84 @@ export default function RecruitmentPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">1</span>
+          <div className="phonepe-grid phonepe-col-12 gap-8">
+            {/* Step 1 - PhonePe Numbered Circle */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto shadow-lg hover-scale transition-transform duration-300">
+                    <span className="text-white font-black text-2xl">1</span>
+                  </div>
+                  {/* Connecting Line */}
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-purple-500/30 to-transparent"></div>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Requirements Analysis</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We work closely with you to understand your culture, requirements, and ideal candidate profile.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Requirements Analysis</h3>
-              <p className="text-muted-foreground">
-                We work closely with you to understand your culture, requirements, and ideal candidate profile.
-              </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">2</span>
+            {/* Step 2 - PhonePe Numbered Circle */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto shadow-lg hover-scale transition-transform duration-300">
+                    <span className="text-white font-black text-2xl">2</span>
+                  </div>
+                  {/* Connecting Line */}
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-orange-500/30 to-transparent"></div>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Talent Sourcing</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our team leverages extensive networks and advanced sourcing techniques to identify top candidates.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Talent Sourcing</h3>
-              <p className="text-muted-foreground">
-                Our team leverages extensive networks and advanced sourcing techniques to identify top candidates.
-              </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">3</span>
+            {/* Step 3 - PhonePe Numbered Circle */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto shadow-lg hover-scale transition-transform duration-300">
+                    <span className="text-white font-black text-2xl">3</span>
+                  </div>
+                  {/* Connecting Line */}
+                  <div className="hidden lg:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-pink-500/30 to-transparent"></div>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Screening & Assessment</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Comprehensive screening including technical assessments, cultural fit evaluation, and reference checks.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Screening & Assessment</h3>
-              <p className="text-muted-foreground">
-                Comprehensive screening including technical assessments, cultural fit evaluation, and reference checks.
-              </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-white font-bold text-xl">4</span>
+            {/* Step 4 - PhonePe Numbered Circle */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                <div className="relative mb-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center mx-auto shadow-lg hover-scale transition-transform duration-300">
+                    <span className="text-white font-black text-2xl">4</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Placement & Support</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We facilitate the hiring process and provide ongoing support to ensure successful onboarding.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Placement & Support</h3>
-              <p className="text-muted-foreground">
-                We facilitate the hiring process and provide ongoing support to ensure successful onboarding.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Success Metrics */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+      {/* Success Metrics - PhonePe Style */}
+      <section className="phonepe-bg-service phonepe-section relative">
+        {/* PhonePe Background Patterns */}
+        <div className="phonepe-bg-pattern-grid absolute inset-0 opacity-20"></div>
+        
+        <div className="phonepe-container relative z-10">
+          <div className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">
               Our Success Metrics
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -196,94 +275,153 @@ export default function RecruitmentPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6">
-              <div className="text-4xl font-bold text-primary mb-2">95%</div>
-              <div className="text-lg font-semibold text-foreground mb-2">Placement Success Rate</div>
-              <p className="text-muted-foreground">Candidates successfully placed and retained</p>
+          <div className="phonepe-grid phonepe-col-12 gap-8">
+            {/* Success Metric 1 - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <span className="text-white font-black text-2xl">95%</span>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Placement Success Rate</h3>
+                <p className="text-muted-foreground leading-relaxed">Candidates successfully placed and retained</p>
+              </div>
             </div>
 
-            <div className="text-center p-6">
-              <div className="text-4xl font-bold text-primary mb-2">30 Days</div>
-              <div className="text-lg font-semibold text-foreground mb-2">Average Time to Hire</div>
-              <p className="text-muted-foreground">From job posting to candidate placement</p>
+            {/* Success Metric 2 - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <span className="text-white font-black text-2xl">30</span>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Average Time to Hire</h3>
+                <p className="text-muted-foreground leading-relaxed">From job posting to candidate placement</p>
+              </div>
             </div>
 
-            <div className="text-center p-6">
-              <div className="text-4xl font-bold text-primary mb-2">500+</div>
-              <div className="text-lg font-semibold text-foreground mb-2">Successful Placements</div>
-              <p className="text-muted-foreground">Candidates placed across various industries</p>
+            {/* Success Metric 3 - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-pink-500 to-pink-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <span className="text-white font-black text-2xl">500+</span>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Successful Placements</h3>
+                <p className="text-muted-foreground leading-relaxed">Candidates placed across various industries</p>
+              </div>
             </div>
 
-            <div className="text-center p-6">
-              <div className="text-4xl font-bold text-primary mb-2">98%</div>
-              <div className="text-lg font-semibold text-foreground mb-2">Client Satisfaction</div>
-              <p className="text-muted-foreground">Based on post-placement feedback</p>
+            {/* Success Metric 4 - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-6 lg:phonepe-col-lg-3">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <span className="text-white font-black text-2xl">98%</span>
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Client Satisfaction</h3>
+                <p className="text-muted-foreground leading-relaxed">Based on post-placement feedback</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+      {/* Why Choose Us - PhonePe Style */}
+      <section className="phonepe-bg-service-alt phonepe-section relative">
+        {/* PhonePe Background Patterns */}
+        <div className="phonepe-bg-pattern-dots absolute inset-0 opacity-20"></div>
+        
+        <div className="phonepe-container relative z-10">
+          <div className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">
               Why Choose TechFlow Recruitment?
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-primary" />
+          <div className="phonepe-grid phonepe-col-12 gap-8">
+            {/* Industry Expertise - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-4">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <Award className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Industry Expertise</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our recruiters have deep industry knowledge and understand the specific requirements of different sectors.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Industry Expertise</h3>
-              <p className="text-muted-foreground">
-                Our recruiters have deep industry knowledge and understand the specific requirements of different sectors.
-              </p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <TrendingUp className="h-8 w-8 text-primary" />
+            {/* Proven Track Record - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-4">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <TrendingUp className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Proven Track Record</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  We have successfully placed candidates in leading companies across various industries and roles.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Proven Track Record</h3>
-              <p className="text-muted-foreground">
-                We have successfully placed candidates in leading companies across various industries and roles.
-              </p>
             </div>
 
-            <div className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-primary" />
+            {/* Fast Turnaround - PhonePe Card */}
+            <div className="phonepe-col-12 md:phonepe-col-md-4">
+              <div className="text-center p-8 phonepe-card rounded-3xl hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                <div className="w-20 h-20 bg-gradient-to-br from-teal-500 to-teal-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-lg hover-scale transition-transform duration-300">
+                  <Clock className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-4">Fast Turnaround</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Our efficient processes and extensive networks enable us to deliver results quickly without compromising quality.
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Fast Turnaround</h3>
-              <p className="text-muted-foreground">
-                Our efficient processes and extensive networks enable us to deliver results quickly without compromising quality.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Find Your Next Team Member?
-          </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Let our recruitment experts help you find the perfect candidate for your organization. 
-            Get started today and build the team that will drive your success.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-              Start Hiring Now
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-              Schedule a Consultation
-            </Button>
+      {/* CTA Section - PhonePe Style */}
+      <section className="phonepe-bg-footer phonepe-section relative overflow-hidden">
+        {/* PhonePe Particle System */}
+        <div className="phonepe-particles">
+          {Array.from({ length: 20 }, (_, i) => (
+            <div
+              key={i}
+              className="phonepe-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 10}s`,
+                animationDuration: `${10 + Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* PhonePe Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="phonepe-floating-element w-96 h-96 -top-48 -right-48 blur-3xl"></div>
+          <div className="phonepe-floating-element w-96 h-96 -bottom-48 -left-48 blur-3xl"></div>
+        </div>
+        
+        {/* PhonePe Gradient Overlays */}
+        <div className="phonepe-overlay-gradient"></div>
+        <div className="phonepe-overlay-radial"></div>
+
+        <div className="phonepe-container relative z-10 text-center">
+          <div className="max-w-4xl mx-auto animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-8">
+              Ready to Find Your Next Team Member?
+            </h2>
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Let our recruitment experts help you find the perfect candidate for your organization. 
+              Get started today and build the team that will drive your success.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <Button size="lg" className="phonepe-button bg-white text-primary hover:bg-white/90 phonepe-touch-target-comfortable">
+                Start Hiring Now
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary phonepe-touch-target-comfortable">
+                Schedule a Consultation
+              </Button>
+            </div>
           </div>
         </div>
       </section>

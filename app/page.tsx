@@ -1,17 +1,26 @@
-import HeroSection from "@/components/sections/HeroSection";
+import HeroCarousel from "@/components/sections/HeroCarousel";
 import ServicesSection from "@/components/sections/ServicesSection";
-import ValuePropositionSection from "@/components/sections/ValuePropositionSection";
+import ServiceCarousel from "@/components/sections/ServiceCarousel";
 import AboutSection from "@/components/sections/AboutSection";
-import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <ServicesSection />
-      <ValuePropositionSection />
-      <AboutSection />
-      <TestimonialsSection />
+      <section id="home">
+        <HeroCarousel />
+      </section>
+      <div className="phonepe-section-divider"></div>
+      <section id="services">
+        <ServicesSection />
+      </section>
+      <div className="phonepe-section-divider"></div>
+      <section id="all-services">
+        <ServiceCarousel />
+      </section>
+      <div className="phonepe-section-divider"></div>
+      <section id="about">
+        <AboutSection />
+      </section>
     </>
   );
 }

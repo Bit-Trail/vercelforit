@@ -1,24 +1,64 @@
-import { Metadata } from "next";
-import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+"use client";
+
+import { Mail, Phone, MapPin, Clock, Send, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { contactInfo } from "@/lib/data";
-
-export const metadata: Metadata = {
-  title: "Contact Us | TechFlow Solutions",
-  description: "Get in touch with TechFlow Solutions. We're here to help with your data annotation, recruitment, and IT service needs.",
-};
+import { ContentReveal, StaggeredReveal } from "@/components/ui/loading";
+import { useState } from "react";
 
 export default function ContactPage() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setIsSubmitting(false);
+    // Handle success/error states here
+  };
+
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+    <div className="min-h-screen" id="contact">
+      {/* Hero Section - PhonePe Style */}
+      <section className="phonepe-bg-hero phonepe-section relative overflow-hidden">
+        {/* PhonePe Particle System */}
+        <div className="phonepe-particles">
+          {Array.from({ length: 25 }, (_, i) => (
+            <div
+              key={i}
+              className="phonepe-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 15}s`,
+                animationDuration: `${12 + Math.random() * 8}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* PhonePe Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="phonepe-floating-element w-64 h-64 -top-32 -right-32 blur-3xl"></div>
+          <div className="phonepe-floating-element w-64 h-64 -bottom-32 -left-32 blur-3xl"></div>
+          <div className="phonepe-floating-element w-80 h-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+        </div>
+        
+        {/* PhonePe Gradient Overlays */}
+        <div className="phonepe-overlay-gradient"></div>
+        <div className="phonepe-overlay-radial"></div>
+
+        <div className="phonepe-container relative z-10">
+          <div className="max-w-4xl mx-auto text-center animate-fade-in-up">
+            <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 phonepe-card hover-scale">
+              <Mail className="h-10 w-10 text-white" />
+            </div>
+            <h1 className="display-text text-white mb-8 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               Get in Touch
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up" style={{animationDelay: '0.4s'}}>
               Ready to transform your business with our services? We&apos;d love to hear from you. 
               Contact us today to discuss your project requirements and how we can help you succeed.
             </p>
@@ -26,147 +66,156 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Information & Form */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Information */}
-            <div className="space-y-8">
+      {/* Contact Information & Form - PhonePe Style */}
+      <section className="phonepe-bg-service phonepe-section relative">
+        {/* PhonePe Background Patterns */}
+        <div className="phonepe-bg-pattern-dots absolute inset-0 opacity-30"></div>
+        
+        <div className="phonepe-container relative z-10">
+          <div className="phonepe-grid phonepe-col-12 gap-16">
+            {/* Contact Information - PhonePe Style */}
+            <div className="phonepe-col-12 lg:phonepe-col-lg-6 space-y-8 animate-fade-in-up">
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">Contact Information</h2>
-                <p className="text-lg text-muted-foreground mb-8">
+                <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">Contact Information</h2>
+                <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                   We&apos;re here to help you with all your business needs. Reach out to us through any of the channels below.
                 </p>
               </div>
 
               <div className="space-y-6">
-                {/* Email */}
-                <div className="flex items-start space-x-4 p-4 rounded-lg bg-muted/50">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                    <p className="text-muted-foreground mb-2">Send us an email anytime</p>
-                    <a 
-                      href={`mailto:${contactInfo.email}`}
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      {contactInfo.email}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start space-x-4 p-4 rounded-lg bg-muted/50">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <p className="text-muted-foreground mb-2">Call us during business hours</p>
-                    <a 
-                      href={`tel:${contactInfo.phone}`}
-                      className="text-primary hover:text-primary/80 transition-colors"
-                    >
-                      {contactInfo.phone}
-                    </a>
+                {/* Email - PhonePe Card */}
+                <div className="group phonepe-card p-6 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Mail className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-2">Email</h3>
+                      <p className="text-muted-foreground mb-3 leading-relaxed">Send us an email anytime</p>
+                      <a 
+                        href={`mailto:${contactInfo.email}`}
+                        className="text-primary hover:text-primary/80 transition-colors font-semibold"
+                      >
+                        {contactInfo.email}
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                {/* Address */}
-                <div className="flex items-start space-x-4 p-4 rounded-lg bg-muted/50">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Office Address</h3>
-                    <p className="text-muted-foreground mb-2">Visit us at our headquarters</p>
-                    <p className="text-foreground">{contactInfo.address}</p>
+                {/* Phone - PhonePe Card */}
+                <div className="group phonepe-card p-6 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Phone className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-2">Phone</h3>
+                      <p className="text-muted-foreground mb-3 leading-relaxed">Call us during business hours</p>
+                      <a 
+                        href={`tel:${contactInfo.phone}`}
+                        className="text-primary hover:text-primary/80 transition-colors font-semibold"
+                      >
+                        {contactInfo.phone}
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                {/* Office Hours */}
-                <div className="flex items-start space-x-4 p-4 rounded-lg bg-muted/50">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-6 w-6 text-primary" />
+                {/* Address - PhonePe Card */}
+                <div className="group phonepe-card p-6 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <MapPin className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-2">Office Address</h3>
+                      <p className="text-muted-foreground mb-3 leading-relaxed">Visit us at our headquarters</p>
+                      <p className="text-foreground font-semibold">{contactInfo.address}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Office Hours</h3>
-                    <p className="text-muted-foreground">{contactInfo.officeHours}</p>
+                </div>
+
+                {/* Office Hours - PhonePe Card */}
+                <div className="group phonepe-card p-6 rounded-3xl hover-lift hover-glow phonepe-touch-target-comfortable animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <Clock className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-2">Office Hours</h3>
+                      <p className="text-muted-foreground leading-relaxed font-semibold">{contactInfo.officeHours}</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-white rounded-2xl border border-border p-8 shadow-sm">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Send us a Message</h2>
-              <form className="space-y-6">
+            {/* Enhanced Contact Form with PhonePe Styling */}
+            <div className="phonepe-col-12 lg:phonepe-col-lg-6">
+              <div className="phonepe-card rounded-3xl p-8 hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.5s'}}>
+                <h2 className="text-3xl font-extrabold text-foreground mb-8">Send us a Message</h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">
-                      First Name *
-                    </label>
+                  <div className="floating-label-group">
                     <input
                       type="text"
                       id="firstName"
                       name="firstName"
                       required
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                      placeholder="Enter your first name"
+                      className="floating-label-input"
+                      placeholder=" "
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">
-                      Last Name *
+                    <label htmlFor="firstName" className="floating-label">
+                      First Name *
                     </label>
+                  </div>
+                  <div className="floating-label-group">
                     <input
                       type="text"
                       id="lastName"
                       name="lastName"
                       required
-                      className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                      placeholder="Enter your last name"
+                      className="floating-label-input"
+                      placeholder=" "
                     />
+                    <label htmlFor="lastName" className="floating-label">
+                      Last Name *
+                    </label>
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
-                  </label>
+                <div className="floating-label-group">
                   <input
                     type="email"
                     id="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="Enter your email address"
+                    className="floating-label-input"
+                    placeholder=" "
                   />
+                  <label htmlFor="email" className="floating-label">
+                    Email Address *
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                    Company
-                  </label>
+                <div className="floating-label-group">
                   <input
                     type="text"
                     id="company"
                     name="company"
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="Enter your company name"
+                    className="floating-label-input"
+                    placeholder=" "
                   />
+                  <label htmlFor="company" className="floating-label">
+                    Company
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                    Service Interested In
-                  </label>
+                <div className="floating-label-group">
                   <select
                     id="service"
                     name="service"
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="floating-label-select"
                   >
                     <option value="">Select a service</option>
                     <option value="data-annotation">Data Annotation & Translation</option>
@@ -174,37 +223,51 @@ export default function ContactPage() {
                     <option value="it-services">IT Services</option>
                     <option value="consultation">General Consultation</option>
                   </select>
+                  <label htmlFor="service" className="floating-label">
+                    Service Interested In
+                  </label>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Message *
-                  </label>
+                <div className="floating-label-group">
                   <textarea
                     id="message"
                     name="message"
                     rows={5}
                     required
-                    className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
-                    placeholder="Tell us about your project requirements..."
+                    className="floating-label-textarea"
+                    placeholder=" "
                   ></textarea>
+                  <label htmlFor="message" className="floating-label">
+                    Message *
+                  </label>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90">
-                  <Send className="h-4 w-4 mr-2" />
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full phonepe-button bg-white text-primary hover:bg-white/90 phonepe-touch-target-comfortable interactive-feedback"
+                  loading={isSubmitting}
+                  loadingText="Sending Message..."
+                >
+                  <Send className="h-5 w-5 mr-2" />
                   Send Message
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </form>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
+      {/* FAQ Section - PhonePe Style */}
+      <section className="phonepe-bg-service-alt phonepe-section relative">
+        {/* PhonePe Background Patterns */}
+        <div className="phonepe-bg-pattern-waves absolute inset-0 opacity-20"></div>
+        
+        <div className="phonepe-container relative z-10">
+          <div className="text-center mb-20 animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-foreground mb-6">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -213,41 +276,41 @@ export default function ContactPage() {
           </div>
 
           <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-white rounded-lg border border-border p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
+            <div className="group phonepe-card rounded-3xl p-8 hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.1s'}}>
+              <h3 className="text-xl font-bold text-foreground mb-4 leading-relaxed">
                 How quickly can you start working on my project?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground leading-relaxed">
                 We typically can begin new projects within 1-2 weeks of contract signing. For urgent projects, 
                 we can often accommodate faster timelines. Contact us to discuss your specific timeline requirements.
               </p>
             </div>
 
-            <div className="bg-white rounded-lg border border-border p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
+            <div className="group phonepe-card rounded-3xl p-8 hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <h3 className="text-xl font-bold text-foreground mb-4 leading-relaxed">
                 Do you work with small businesses or only large enterprises?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground leading-relaxed">
                 We work with businesses of all sizes, from startups to Fortune 500 companies. Our services are 
                 scalable and can be tailored to meet the needs and budget of any organization.
               </p>
             </div>
 
-            <div className="bg-white rounded-lg border border-border p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
+            <div className="group phonepe-card rounded-3xl p-8 hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+              <h3 className="text-xl font-bold text-foreground mb-4 leading-relaxed">
                 What industries do you serve?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground leading-relaxed">
                 We serve clients across various industries including technology, healthcare, finance, e-commerce, 
                 manufacturing, and more. Our team has experience in multiple sectors and can adapt to industry-specific requirements.
               </p>
             </div>
 
-            <div className="bg-white rounded-lg border border-border p-6">
-              <h3 className="text-lg font-semibold text-foreground mb-3">
+            <div className="group phonepe-card rounded-3xl p-8 hover-lift hover-glow animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+              <h3 className="text-xl font-bold text-foreground mb-4 leading-relaxed">
                 Do you provide ongoing support after project completion?
               </h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground leading-relaxed">
                 Yes, we offer comprehensive support and maintenance services for all our projects. We provide 
                 24/7 support options and can help with updates, bug fixes, and feature enhancements as your business grows.
               </p>
@@ -256,22 +319,49 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Get Started?
-          </h2>
-          <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Don&apos;t wait to transform your business. Contact us today and let&apos;s discuss how we can help you achieve your goals.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-              Call Us Now
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-              Send Email
-            </Button>
+      {/* CTA Section - PhonePe Style */}
+      <section className="phonepe-bg-footer phonepe-section relative overflow-hidden">
+        {/* PhonePe Particle System */}
+        <div className="phonepe-particles">
+          {Array.from({ length: 20 }, (_, i) => (
+            <div
+              key={i}
+              className="phonepe-particle"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 10}s`,
+                animationDuration: `${10 + Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+        
+        {/* PhonePe Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="phonepe-floating-element w-96 h-96 -top-48 -right-48 blur-3xl"></div>
+          <div className="phonepe-floating-element w-96 h-96 -bottom-48 -left-48 blur-3xl"></div>
+        </div>
+        
+        {/* PhonePe Gradient Overlays */}
+        <div className="phonepe-overlay-gradient"></div>
+        <div className="phonepe-overlay-radial"></div>
+
+        <div className="phonepe-container relative z-10 text-center">
+          <div className="max-w-4xl mx-auto animate-fade-in-up">
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-8">
+              Ready to Get Started?
+            </h2>
+            <p className="text-xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
+              Don&apos;t wait to transform your business. Contact us today and let&apos;s discuss how we can help you achieve your goals.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+              <Button size="lg" className="phonepe-button bg-white text-primary hover:bg-white/90 phonepe-touch-target-comfortable">
+                Call Us Now
+              </Button>
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary phonepe-touch-target-comfortable">
+                Send Email
+              </Button>
+            </div>
           </div>
         </div>
       </section>
